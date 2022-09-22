@@ -1,0 +1,248 @@
+@import url('http://fonts.cdnfonts.com/css/fengardo-neue');
+@import url('https://fonts.googleapis.com/css?family=Roboto Mono');
+body{
+    background-color: #caf0f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    font-family:'Roboto Mono' ;
+    color: #0077b6;
+}
+
+form{
+    margin-top: 100px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #90e0ef;
+    color: #03045e;
+    border: 7px solid #00b4d8;
+    border-radius:3px;
+}
+
+h1{
+    font-family: 'Fengardo Neue', sans-serif;
+    font-size: 24px;
+    margin-bottom: 50px;
+}
+
+input{
+    border: 6px solid #00b4d8;
+    border-radius:3px;
+    background-color: #90e0ef;
+    color: #0077b6;
+    padding: 0.3rem;
+}
+select{
+    border: 3px solid #00b4d8;
+    border-radius:3px;
+    background-color: #90e0ef;
+    color: #0077b6;
+    padding: 0.3rem;
+}
+
+.submit_button{
+    background-color: #90e0ef;
+    color: #0077b6;
+    border: none;
+    font-family:'Roboto Mono' ;
+    font-weight: bolder ;
+    margin-left: 80px;
+}
+
+.submit_button:hover{
+    opacity: 40%;
+    cursor: pointer;
+}
+
+.logo{
+    width: 250px;
+    height: 180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo_menu{
+    width: 200px;
+    height: 100px;
+    float: left;
+}
+
+.menu_bar{
+    height: 120px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(3,4,94,1) 19%, rgba(0,180,216,1) 100%);
+    width: 100%;
+
+}
+
+.menu_list{
+    float:right;
+    margin-top: 50px;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+li{
+    width: 150px;
+}
+.menu_list>li>a{
+    color: white;
+}
+
+
+
+a{
+    text-decoration: none;
+    color: #0077b6;
+    font-family: 'Fengardo Neue', sans-serif;
+    font-size: 20px;
+}
+a:hover{
+    opacity: 80%;
+}
+
+.ocult{
+    display: none;
+}
+
+.profile_foto{
+    width: 80px;
+    height: 80px;
+}
+
+.link_img{
+    width: 60px;
+    height: 60px;
+}
+
+.link_img:hover{
+    opacity: 50%;
+}
+
+.createnew_link{
+    align-self:flex-end;
+    margin-right: 10%;
+    font-weight: bolder;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-right: 0px;
+}
+
+table{
+    background-color: #90e0ef;
+    padding: 2rem;
+}
+
+th{
+    font-weight: bold;
+    font-family: 'Fengardo Neue', sans-serif;
+    font-size: 24px;
+
+    text-align: center;
+    padding: 1rem;
+    
+}
+
+td{
+    font-family: 'Roboto Mono';
+    font-size: 18px;
+    text-align: center;
+}
+
+.search_bar{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 70px;
+    
+}
+
+.search_img{
+    width: 40px;
+    height: 40px;
+}
+
+.search_form{
+    background-color: #90e0ef;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    width: 700px;
+    margin-top: 0px;
+}
+
+.search_form input{
+    border:none;
+    margin-left: 10px;
+    width: 88%;
+}
+
+.search_form button{
+    border: none;
+    background-color: #90e0ef;
+    color: #0077b6;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.search_form button:hover{
+    opacity: 50%;
+}
+
+.custom_menu{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+}
+
+.custom_button{
+    width: 260px;
+    background-color: #90e0ef;
+    padding: 32px 0rem 32px 0rem;
+    text-align: center;
+    border: 3px solid #00b4d8;
+    border-radius: 5px;
+
+}
+
+.custom_button:hover{
+    background-color: #caf0f8;
+    opacity: 80%;
+}
+h2{
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+/* Estil per formularis grans */
+.big_form{
+    width: 500px;
+}
+
+.big_form>p{
+    width: 100%;
+    padding-left: 20%;
+}
+
+.big_form>p>input{
+    float: right;
+    margin-right: 130px;
+}
+
+.big_form>p>input{
+    float: right;
+    margin-right: 130px;
+}
+
+.big_form>p>.submit_button{
+    float: right;
+    margin-right: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
