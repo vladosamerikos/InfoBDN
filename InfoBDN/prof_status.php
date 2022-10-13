@@ -11,7 +11,7 @@
 <body>
     <?php
     // Comprobamos que hemos iniciado la session
-    if (isset($_SESSION["email"])){ 
+    if (isset($_SESSION["email"]) && $_SESSION["role"]=="admin"){ 
         if ($_REQUEST['dni']) {
             // Creamos la conexion a la bdd
             $bddcon = mysqli_connect("localhost","root","","infobdn");
@@ -34,7 +34,7 @@
                     echo mysqli_error($bddcon)."<br>"; 
                     echo "Error querry no valida ".$sql; 
                     echo "Redirigint..";
-                    echo "<META HTTP-EQUIV='REFRESH' CONTENT='222222;URL=profs_admin.php'>";
+                    echo "<META HTTP-EQUIV='REFRESH' CONTENT='22;URL=profs_admin.php'>";
                 }else{
                 echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=profs_admin.php'>";
                 }
@@ -46,7 +46,7 @@
     }else{
         // Mostramos mensaje y redirigimos a la pagina de login en el caso de session no iniciada
         echo "<p>Has d'estar valiat per veure aquesta pàgina</p>";
-        echo "<META HTTP-EQUIV='REFRESH' CONTENT='3;URL=login_admin.php'>";
+        echo "<META HTTP-EQUIV='REFRESH' CONTENT='1.5;URL=login_admin.php'>";
     }    
         
     ?>

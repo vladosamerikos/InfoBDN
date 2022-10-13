@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 23-09-2022 a las 08:13:49
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 7.4.29
+-- Хост: 127.0.0.1
+-- Час створення: Жов 12 2022 р., 23:27
+-- Версія сервера: 10.4.24-MariaDB
+-- Версія PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `infobdn`
+-- База даних: `infobdn`
 --
 CREATE DATABASE IF NOT EXISTS `infobdn` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `infobdn`;
@@ -26,7 +26,7 @@ USE `infobdn`;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `admins`
+-- Структура таблиці `admins`
 --
 
 CREATE TABLE `admins` (
@@ -35,17 +35,16 @@ CREATE TABLE `admins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `admins`
+-- Дамп даних таблиці `admins`
 --
 
 INSERT INTO `admins` (`Mail`, `Password`) VALUES
-('alberadmin@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b'),
 ('vladadmin@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alumnes`
+-- Структура таблиці `alumnes`
 --
 
 CREATE TABLE `alumnes` (
@@ -55,138 +54,159 @@ CREATE TABLE `alumnes` (
   `Edat` int(3) NOT NULL,
   `Foto` varchar(255) NOT NULL,
   `Mail` varchar(55) NOT NULL,
-  `Password` varchar(55) NOT NULL
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `alumnes`
+-- Дамп даних таблиці `alumnes`
 --
 
-INSERT INTO `alumnes` (`DNI`, `Nom`, `Cognoms`, `Edat`, `Foto`, `Mail`, `Password`) VALUES
-('12345678B', 'Pepe', 'Gs', 12, '', 'pepe@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b');
+INSERT INTO `alumnes` (`DNI`, `Nom`, `Cognoms`, `Edat`, `Foto`, `Mail`, `password`) VALUES
+('A11111111', 'Daniel', 'Garcia', 18, 'img/D11111111.png', 'daniel@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b'),
+('B11111111', 'Marc', 'Garcia', 21, 'img/D11111111.png', 'marc@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b'),
+('C11111111', 'Pau', 'Garcia', 25, 'img/D11111111.png', 'pau@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b'),
+('D11111111', 'Vladyslav', 'pasichnyk', 19, 'img/D11111111.png', 'vlad@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b'),
+('X11111111', 'Pep', 'Garcia', 20, 'img/D11111111.png', 'pep@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cursos`
+-- Структура таблиці `cursos`
 --
 
 CREATE TABLE `cursos` (
   `Codi` int(3) NOT NULL,
-  `Nom` varchar(20) NOT NULL,
-  `Descripcio` varchar(255) NOT NULL,
+  `Nom` varchar(100) NOT NULL,
+  `Descripcio` varchar(800) NOT NULL,
   `Horres_durara` int(3) NOT NULL,
   `Data_inici` date NOT NULL,
   `Data_final` date NOT NULL,
   `DNI_prof` varchar(12) NOT NULL,
-  `Actiu` varchar(2) NOT NULL DEFAULT 'si'
+  `Actiu` varchar(2) NOT NULL DEFAULT 'si',
+  `Foto` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `cursos`
+-- Дамп даних таблиці `cursos`
 --
 
-INSERT INTO `cursos` (`Codi`, `Nom`, `Descripcio`, `Horres_durara`, `Data_inici`, `Data_final`, `DNI_prof`, `Actiu`) VALUES
-(1, 'ASIX', 'ASIX', 300, '2022-09-01', '2022-09-30', '123456', 'no'),
-(2, 'daw', 'DAW', 300, '2022-09-30', '2022-12-21', '87654321B', 'si'),
-(4, 'DAW2', 'DAW2', 333, '2022-10-09', '2022-12-30', '3333333', 'si');
+INSERT INTO `cursos` (`Codi`, `Nom`, `Descripcio`, `Horres_durara`, `Data_inici`, `Data_final`, `DNI_prof`, `Actiu`, `Foto`) VALUES
+(1, 'DAW', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id arcu fringilla, pretium libero ac, fringilla est. Vestibulum ante ipsum primis in faucibus orci luctus.', 1000, '2023-04-13', '2022-09-14', '12345678x', 'si', 'img/1.svg'),
+(2, 'DAW2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id arcu fringilla, pretium libero ac, fringilla est. Vestibulum ante ipsum primis in faucibus orci luctus. ', 2000, '2023-03-03', '2023-01-28', '12345678x', 'si', 'img/2.jpg'),
+(3, 'SMX', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id arcu fringilla, pretium libero ac, fringilla est. Vestibulum ante ipsum primis in faucibus orci luctus.', 2000, '2023-02-24', '2023-12-01', '12345678x', 'si', 'img/3.svg'),
+(4, 'SMX2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id arcu fringilla, pretium libero ac, fringilla est. Vestibulum ante ipsum primis in faucibus orci luctus.', 2000, '2023-03-10', '2024-03-31', '88888888C', 'si', 'img/4.svg'),
+(6, 'Usuarios', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id arcu fringilla, pretium libero ac, fringilla est. Vestibulum ante ipsum primis in faucibus orci luctus.', 200, '2022-11-14', '2023-03-30', '44444444f', 'si', 'img/6.svg');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `matricula`
+-- Структура таблиці `matricula`
 --
 
 CREATE TABLE `matricula` (
   `DNI_alum` varchar(12) NOT NULL,
-  `Codi_curs` int(3) NOT NULL
+  `Codi_curs` int(3) NOT NULL,
+  `nota` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп даних таблиці `matricula`
+--
+
+INSERT INTO `matricula` (`DNI_alum`, `Codi_curs`, `nota`) VALUES
+('A11111111', 1, 8),
+('A11111111', 3, 2),
+('B11111111', 1, 5),
+('B11111111', 3, 3),
+('C11111111', 1, 2),
+('C11111111', 3, 0),
+('D11111111', 1, 0),
+('D11111111', 3, 0),
+('X11111111', 1, 0),
+('X11111111', 3, 0);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `professor`
+-- Структура таблиці `professor`
 --
 
 CREATE TABLE `professor` (
   `DNI` varchar(12) NOT NULL,
   `Nom` varchar(20) NOT NULL,
   `Cognoms` varchar(20) NOT NULL,
+  `Edat` int(2) NOT NULL DEFAULT 30,
   `Titol_academic` varchar(20) NOT NULL,
   `Foto` varchar(255) NOT NULL,
-  `mail` varchar(55) NOT NULL,
+  `Mail` varchar(55) NOT NULL,
   `Actiu` varchar(2) NOT NULL DEFAULT 'si',
   `password` varchar(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `professor`
+-- Дамп даних таблиці `professor`
 --
 
-INSERT INTO `professor` (`DNI`, `Nom`, `Cognoms`, `Titol_academic`, `Foto`, `mail`, `Actiu`, `password`) VALUES
-('12312', 'Vlad', 'asdada', 'dsada', 'img/12312.jpg', '123dsadadasda1@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
-('123456', 'Vlad', 'Pasichnyk', 'DAW', 'img/123456.png', 'vladmod@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
-('321', '3211', '321', '321', 'img/321.png', '321@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
-('321pep123', 'Pep', 'Pep', 'DAW', 'img/321pep123.jpg', '123pep@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
-('3333333', 'Alber', '123', '123', 'img/3333333.png', 'albert@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
-('87654321B', 'Pepe', 'lol', 'ASIX', 'img/87654321B.png', 'pepe@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
-('nou1', 'nou1', 'nou1', 'nou1', 'img/nou1.png', 'nou@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
-('provaclase', 'clase', '321', '123', 'img/provaclase.png', 'anna321@gmail.com', 'no', '827ccb0eea8a706c4c34a16891f84e7b');
+INSERT INTO `professor` (`DNI`, `Nom`, `Cognoms`, `Edat`, `Titol_academic`, `Foto`, `Mail`, `Actiu`, `password`) VALUES
+('12345678x', 'Pep', 'Garcia', 20, 'DAW', 'img/12345678x.jpg', 'pepi@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
+('3212321', '123', '321', 30, '32131', 'img/3212321.png', 'pepe@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
+('44444444f', 'pig', 'pepa', 30, 'TUT', 'img/44444444f.png', 'PIG@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
+('88888888C', 'Koko', 'Kok', 30, 'UNI', 'img/88888888C.png', 'koko@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b');
 
 --
--- Índices para tablas volcadas
+-- Індекси збережених таблиць
 --
 
 --
--- Indices de la tabla `admins`
+-- Індекси таблиці `admins`
 --
 ALTER TABLE `admins`
   ADD UNIQUE KEY `Mail` (`Mail`);
 
 --
--- Indices de la tabla `alumnes`
+-- Індекси таблиці `alumnes`
 --
 ALTER TABLE `alumnes`
   ADD PRIMARY KEY (`DNI`),
   ADD UNIQUE KEY `Mail` (`Mail`);
 
 --
--- Indices de la tabla `cursos`
+-- Індекси таблиці `cursos`
 --
 ALTER TABLE `cursos`
   ADD PRIMARY KEY (`Codi`),
   ADD KEY `DNI_prof` (`DNI_prof`);
 
 --
--- Indices de la tabla `matricula`
+-- Індекси таблиці `matricula`
 --
 ALTER TABLE `matricula`
   ADD PRIMARY KEY (`DNI_alum`,`Codi_curs`),
   ADD KEY `Codi_curs` (`Codi_curs`);
 
 --
--- Indices de la tabla `professor`
+-- Індекси таблиці `professor`
 --
 ALTER TABLE `professor`
   ADD PRIMARY KEY (`DNI`),
-  ADD UNIQUE KEY `mail` (`mail`);
+  ADD UNIQUE KEY `mail` (`Mail`);
 
 --
--- Restricciones para tablas volcadas
+-- Обмеження зовнішнього ключа збережених таблиць
 --
 
 --
--- Filtros para la tabla `cursos`
+-- Обмеження зовнішнього ключа таблиці `cursos`
 --
 ALTER TABLE `cursos`
   ADD CONSTRAINT `cursos_ibfk_1` FOREIGN KEY (`DNI_prof`) REFERENCES `professor` (`DNI`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `matricula`
+-- Обмеження зовнішнього ключа таблиці `matricula`
 --
 ALTER TABLE `matricula`
   ADD CONSTRAINT `matricula_ibfk_2` FOREIGN KEY (`Codi_curs`) REFERENCES `cursos` (`Codi`) ON DELETE CASCADE,
-  ADD CONSTRAINT `matricula_ibfk_3` FOREIGN KEY (`DNI_alum`) REFERENCES `alumnes` (`DNI`) ON DELETE CASCADE;
+  ADD CONSTRAINT `matricula_ibfk_3` FOREIGN KEY (`DNI_alum`) REFERENCES `alumnes` (`DNI`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -10,10 +10,12 @@
 </head>
 <body>
     <?php
+    include "functions.php";
+    $bddcon= getBddConn();
     // Comprobamos que hemos iniciado la session
-    if (isset($_SESSION["email"])){ 
+    if (isset($_SESSION["email"]) && $_SESSION["role"]=="admin"){
             if ($_POST) {
-                 // Creamos la conexion a la bdd
+                // Creamos la conexion a la bdd
                 $bddcon = mysqli_connect("localhost","root","","infobdn");
                 // Comprobamos que la conexion sea valida
                 if ($bddcon == false){
@@ -58,45 +60,35 @@
                     }   
                 }    
             }else{
-                // Generamos el formulario de login
-                // Creamos la conexion a la bdd
-                $bddcon = mysqli_connect("localhost","root","","infobdn");
-                // Comprobamos que la conexion sea valida
-                if ($bddcon == false){
-                    mysqli_connect_error();
+                // Creamos la sentencia sql
+                $sql = "SELECT DNI FROM professor";
+                // Ejecutamos la sentencia
+                $consulta = mysqli_query ($bddcon,$sql);  
+                // Controlamos posibles errores
+                if(!$consulta){ 
+                    echo mysqli_error($bddcon)."<br>"; 
+                    echo "Error querry no valida ".$sql; 
+                    echo "Redirigint..";
+                    echo "<META HTTP-EQUIV='REFRESH' CONTENT='5;URL=profs_admin.php'>";
                 }else{
-                    // Creamos la sentencia sql
-                    $sql = "SELECT DNI FROM professor";
-                    // Ejecutamos la sentencia
-                    $consulta = mysqli_query ($bddcon,$sql);  
-                    // Controlamos posibles errores
-                    if(!$consulta){ 
-                        echo mysqli_error($bddcon)."<br>"; 
-                        echo "Error querry no valida ".$sql; 
-                        echo "Redirigint..";
-                        echo "<META HTTP-EQUIV='REFRESH' CONTENT='5;URL=profs_admin.php'>";
-                    }else{
-                        
-                        echo "<form class='big_form' action='crear_prof.php' ENCTYPE='multipart/form-data' method='post'>";
-                            echo "<h1> Crear professor </h1>";
-                            echo "<p>DNI<input type='text' name='dni' id='dni' required></p>";
-                            echo "<p>Nom<input type='text' name='nom' id='nom' required></p>";
-                            echo "<p>Cognoms<input type='text' name='cognoms' id='cognoms' required></p>";
-                            echo "<p>Titol academic<input type='text' name='titol' id='titol'required></p>";
-                            echo "<p>Foto<input type='file' name='foto' id='foto' accept='image/*' required></p>";
-                            echo "<p>Correu electronic<input type='email' name='correu' id='correu' required></p>";
-                            echo "<p>Contrasenya<input type='password' name='password' id='password' required></p>";
-                            echo "<p><button class='submit_button' type='submit'>Crear</button></p>";       
-                        echo "</form>";
-                        
-                    }   
+                    displayMenuAdmin();
+                    echo "<form class='big_form' action='crear_prof.php' ENCTYPE='multipart/form-data' method='post'>
+                        <h1> Crear professor </h1>
+                        <p>DNI<input type='text' name='dni' id='dni' required></p>
+                        <p>Nom<input type='text' name='nom' id='nom' required></p>
+                        <p>Cognoms<input type='text' name='cognoms' id='cognoms' required></p>
+                        <p>Titol academic<input type='text' name='titol' id='titol'required></p>
+                        <p>Foto<input type='file' name='foto' id='foto' accept='image/*' required></p>
+                        <p>Correu electronic<input type='email' name='correu' id='correu' required></p>
+                        <p>Contrasenya<input type='password' name='password' id='password' required></p>
+                        <p><button class='submit_button' type='submit'>Crear</button></p>      
+                    </form>";
                 }
-                
             }
     }else{
         // Mostramos mensaje y redirigimos a la pagina de login en el caso de session no iniciada
         echo "<p>Has d'estar valiat per veure aquesta pàgina</p>";
-        echo "<META HTTP-EQUIV='REFRESH' CONTENT='3;URL=login_admin.php'>";
+        echo "<META HTTP-EQUIV='REFRESH' CONTENT='3;URL=index.php'>";
     }    
         
     ?>
