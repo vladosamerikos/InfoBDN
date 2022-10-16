@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 session_destroy();
 ?>
@@ -12,8 +12,10 @@ session_destroy();
     <title>Sortir</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <p>Sortint...</p>
     <META HTTP-EQUIV="REFRESH" CONTENT="1;URL=index.php">
 </body>
+
 </html>

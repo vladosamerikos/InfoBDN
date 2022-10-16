@@ -114,9 +114,6 @@ li {
     top: 50px
 }
 
-
-
-
 a {
     text-decoration: none;
     color: #0077b6;
@@ -266,7 +263,6 @@ h2 {
     margin-bottom: 80px;
 }
 
-
 /* Estil per dos butons en formularis de login */
 
 .doble_button {
@@ -287,7 +283,6 @@ h2 {
     opacity: 80%;
     cursor: pointer;
 }
-
 
 /* Estil per el enllaç de manteniment */
 
@@ -407,7 +402,9 @@ h2 {
 .cursIcon {
     width: 24px;
     height: 24px;
+    margin-right: 5px;
 }
+
 
 .cursbottomline {
     padding: 0.2rem;
@@ -493,15 +490,6 @@ h2 {
 
 }
 
-
-
-
-
-
-
-
-
-
 /* Estils per pagines del professor */
 .cursTable {
     padding-top: 1rem;
@@ -525,6 +513,18 @@ h2 {
 .noCursFinalMsg {
     color: red;
 }
+
+.caducadosDivisor{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(109, 109, 109);
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+    margin-top: 80px;
+}
+
 
 
 /* Estils per pagina de perfils */

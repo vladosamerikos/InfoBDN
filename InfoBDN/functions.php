@@ -17,7 +17,7 @@ function displayMenuAdmin()
     <div class="menu_bar">
         <a href="main_admin.php"><img class="logo_menu" src="img/transparent_logo.svg" alt=""></a>
         <div class='menuWelcomeMsg'>
-            Estàs loguejat com a administrador <?php echo  $_SESSION['email']?>
+            Estàs loguejat com a administrador <?php echo  $_SESSION['email'] ?>
         </div>
         <ul class="menu_list">
             <li><a href="./cursos_admin.php">Cursos</a></li>
@@ -34,7 +34,7 @@ function displayMenuAlumn()
     <div class="menu_bar">
         <a href="main_alu.php"><img class="logo_menu" src="img/transparent_logo.svg" alt=""></a>
         <div class='menuWelcomeMsg'>
-            Estàs loguejat com alumne <?php echo  $_SESSION['nom']." ".$_SESSION['cognoms'] ?>
+            Estàs loguejat com alumne <?php echo  $_SESSION['nom'] . " " . $_SESSION['cognoms'] ?>
         </div>
         <ul class="menu_list">
             <li><a href="./llistatcursos_alu.php">Cursos disponibles</a></li>
@@ -53,10 +53,11 @@ function displayMenuProf()
     <div class="menu_bar">
         <a href="main_prof.php"><img class="logo_menu" src="img/transparent_logo.svg" alt=""></a>
         <div class='menuWelcomeMsg'>
-            Estàs loguejat com a professor <?php echo  $_SESSION['nom']." ".$_SESSION['cognoms'] ?>
+            Estàs loguejat com a professor <?php echo  $_SESSION['nom'] . " " . $_SESSION['cognoms'] ?>
         </div>
         <ul class="menu_list">
-            <li><a href="./alumnes_prof.php">Meus Alumnes</a></li>
+            <li><a href="./cursos_prof.php">Cursos Actius</a></li>
+            <li><a href="./alumnes_prof.php">Alumnes</a></li>
             <li><a href="./notes_prof.php">Notes</a></li>
             <li><a href="./meu_perfil.php"><img class='menuicon' src="./img/profile.svg" alt="Perfil"></a></li>
             <li><a href="./logout.php"><img class='menuicon' src="./img/sessionclose.svg" alt="Tancar sessió"></a></li>
@@ -81,6 +82,17 @@ function displaySearchBarAdminCursos()
     echo "<div class='search_bar'>
             <img class='search_img' src='img/search.svg' alt='lupa de busqueda'>
             <form class='search_form' action='cursos_admin.php' method='post'>
+                <input type='text' name='search' id='search' placeholder='Introdueix el nom del curs.'>
+                <button type='submit'>Buscar</button>
+            </form>
+        </div>";
+}
+
+function displaySearchBarProfCursos()
+{
+    echo "<div class='search_bar'>
+            <img class='search_img' src='img/search.svg' alt='lupa de busqueda'>
+            <form class='search_form' action='cursos_prof.php' method='post'>
                 <input type='text' name='search' id='search' placeholder='Introdueix el nom del curs.'>
                 <button type='submit'>Buscar</button>
             </form>

@@ -15,7 +15,7 @@
     include "functions.php";
     $bddcon = getBddConn();
     // Comprobamos que hemos iniciado la session
-    if (isset($_SESSION["email"])  && ($_SESSION["role"]=="prof" || $_SESSION["role"]=="alum")) {
+    if (isset($_SESSION["email"])  && ($_SESSION["role"] == "prof" || $_SESSION["role"] == "alum")) {
         // En el caso de que la pagina ha recivido datos POST genera sentencia sql que compruba si los datos coinciden con algun registro en la BD.
         if ($_POST) {
             // Recogemos pos datos enviados des del formulario y los guardamos en variables locales
@@ -23,7 +23,7 @@
             $cognoms = $_POST['cognom'];
             $email = $_POST['email'];
             $dni = $_POST['dni'];
-            $edat= $_POST['edat'];
+            $edat = $_POST['edat'];
 
             if ($_SESSION['role'] == 'alum') {
                 $table = 'alumnes';
@@ -71,23 +71,23 @@
                     <div class='profilePhoto profilePhotoForm'>
                         <img class='roundProfilePhoto' src='$foto'>
                         <p class='profileName'>" . $perfil['Nom'] . " " . $perfil['Cognoms'] . "</p>
-                        <a class='bntEditProfile' href='edit_profilefoto.php?mail=".$perfil['Mail']."'>Editar Foto</a>
+                        <a class='bntEditProfile' href='edit_profilefoto.php?mail=" . $perfil['Mail'] . "'>Editar Foto</a>
                     </div>
                     <form class='profileInfo profileInfoForm' action='edit_profileinfo.php'  method='post'>
                         <div class='profileRow'>
-                            <div class='rowTitle'>Nom </div><input class='rowContent' type='text' name='nom' id='nom' value='".$perfil['Nom']."'>
+                            <div class='rowTitle'>Nom </div><input class='rowContent' type='text' name='nom' id='nom' value='" . $perfil['Nom'] . "'>
                         </div>
                         <div class='profileRow'>
-                            <div class='rowTitle'>Cognoms</div><input class='rowContent' type='text' name='cognom' id='cognom' value='".$perfil['Cognoms']."'>
+                            <div class='rowTitle'>Cognoms</div><input class='rowContent' type='text' name='cognom' id='cognom' value='" . $perfil['Cognoms'] . "'>
                         </div>
                         <div class='profileRow'>
-                            <div class='rowTitle'>Correu Electronic</div><input class='rowContent' type='text' name='email' id='email' value='".$perfil['Mail']."'>
+                            <div class='rowTitle'>Correu Electronic</div><input class='rowContent' type='text' name='email' id='email' value='" . $perfil['Mail'] . "'>
                         </div>
                         <div class='profileRow'>
-                            <div class='rowTitle'>DNI</div><input class='rowContent' type='text' name='dni' id='dni' value='".$perfil['DNI']."' readonly>
+                            <div class='rowTitle'>DNI</div><input class='rowContent' type='text' name='dni' id='dni' value='" . $perfil['DNI'] . "' readonly>
                         </div>
                         <div class='profileRow'>
-                            <div class='rowTitle'>Edat</div><input class='rowContent' type='number' name='edat' id='edat' value='".$perfil['Edat']."'>
+                            <div class='rowTitle'>Edat</div><input class='rowContent' type='number' name='edat' id='edat' value='" . $perfil['Edat'] . "'>
                         </div>
                             <button class='bntEditProfile' type='submit'>Guardar Canvis</button>
                     </form>

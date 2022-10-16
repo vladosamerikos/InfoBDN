@@ -14,7 +14,7 @@
     <?php
     include "functions.php";
     // Comprobamos que hemos iniciado la session
-    if (isset($_SESSION["email"]) && ($_SESSION["role"]=="prof" || $_SESSION["role"]=="alum")) {
+    if (isset($_SESSION["email"]) && ($_SESSION["role"] == "prof" || $_SESSION["role"] == "alum")) {
         $bddcon = getBddConn();
         $email = $_SESSION['email'];
         if ($_SESSION['role'] == 'alum') {
@@ -39,28 +39,28 @@
         <div class='profileContent'>
             <div class='profilePhoto'>
                 <img class='roundProfilePhoto' src='$foto'>
-                <p class='profileName'>".$perfil['Nom']." ".$perfil['Cognoms']."</p>
-                <a class='bntEditProfile' href='edit_profilefoto.php?mail=".$perfil['Mail']."'>Editar Foto</a>
+                <p class='profileName'>" . $perfil['Nom'] . " " . $perfil['Cognoms'] . "</p>
+                <a class='bntEditProfile' href='edit_profilefoto.php?mail=" . $perfil['Mail'] . "'>Editar Foto</a>
             </div>
             <div class='profileInfo'>
                 <div class='profileRow'>
-                    <div class='rowTitle'>Nom Complet</div><div class='rowContent'>".$perfil['Nom']." ".$perfil['Cognoms']."</div>
+                    <div class='rowTitle'>Nom Complet</div><div class='rowContent'>" . $perfil['Nom'] . " " . $perfil['Cognoms'] . "</div>
                 </div>
                 <hr>
                 <div class='profileRow'>
-                    <div class='rowTitle'>Correu Electronic</div><div class='rowContent'>".$perfil['Mail']."</div>
+                    <div class='rowTitle'>Correu Electronic</div><div class='rowContent'>" . $perfil['Mail'] . "</div>
                 </div>
                 <hr>
                 <div class='profileRow'>
-                    <div class='rowTitle'>DNI</div><div class='rowContent'>".$perfil['DNI']."</div>
+                    <div class='rowTitle'>DNI</div><div class='rowContent'>" . $perfil['DNI'] . "</div>
                 </div>
                 <hr>
                 <div class='profileRow'>
-                    <div class='rowTitle'>Edat</div><div class='rowContent'>".$perfil['Edat']."</div>
+                    <div class='rowTitle'>Edat</div><div class='rowContent'>" . $perfil['Edat'] . "</div>
                 </div>
                 <hr>
                 <div class='profileRow'>
-                <a class='bntEditProfile' href='edit_profileinfo.php?mail=".$perfil['Mail']."'>Editar</a>
+                <a class='bntEditProfile' href='edit_profileinfo.php?mail=" . $perfil['Mail'] . "'>Editar</a>
                 </div>
             <div>
         </div>";

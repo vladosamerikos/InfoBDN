@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="ca">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +9,12 @@
     <title>Editar professor</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<?php
+    <?php
     include "functions.php";
     // Comprobamos que hemos iniciado la session
-    if (isset($_SESSION["email"])  && $_SESSION["role"]=="alum"){
+    if (isset($_SESSION["email"])  && $_SESSION["role"] == "alum") {
         if ($_REQUEST['codi']) {
             $bddcon = getBddConn();
             $codi = $_REQUEST['codi'];
@@ -20,30 +22,31 @@
             // Creamos la sentencia sql
             $sql = "INSERT INTO matricula VALUES ('$dni', '$codi', '')";
             // Ejecutamos la sentencia
-            $consulta = mysqli_query ($bddcon,$sql);  
+            $consulta = mysqli_query($bddcon, $sql);
             // Controlamos posibles errores
-            if(!$consulta){ 
-                echo mysqli_error($bddcon)."<br>"; 
-                echo "Error querry no valida ".$sql; 
+            if (!$consulta) {
+                echo mysqli_error($bddcon) . "<br>";
+                echo "Error querry no valida " . $sql;
                 echo "Redirigint..";
                 echo "<META HTTP-EQUIV='REFRESH' CONTENT='333333333333;URL=llistatcursos_alu.php'>";
-            }else{
-                echo mysqli_error($bddcon)."<br>"; 
-                echo "Curs matriculat"; 
+            } else {
+                echo mysqli_error($bddcon) . "<br>";
+                echo "Curs matriculat";
                 echo "Redirigint..";
                 echo "<META HTTP-EQUIV='REFRESH' CONTENT='3;URL=micursos_alu.php'>";
-            }    
-        }else{
+            }
+        } else {
             // Mostramos mensaje y redirigimos a la pagina de login en el caso de session no iniciada
             echo "<p>No hem pugut obtenir el codi del curs</p>";
             echo "<META HTTP-EQUIV='REFRESH' CONTENT='3;URL=llistatcursos_alu.php'>";
-        }    
-    }else{
+        }
+    } else {
         // Mostramos mensaje y redirigimos a la pagina de login en el caso de session no iniciada
         echo "<p>Has d'estar valiat per veure aquesta pàgina</p>";
         echo "<META HTTP-EQUIV='REFRESH' CONTENT='3;URL=index.php'>";
-    }    
-        
-?>
+    }
+
+    ?>
 </body>
+
 </html>
