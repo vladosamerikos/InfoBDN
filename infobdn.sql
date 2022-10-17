@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Час створення: Жов 12 2022 р., 23:27
+-- Час створення: Жов 18 2022 р., 00:19
 -- Версія сервера: 10.4.24-MariaDB
 -- Версія PHP: 7.4.28
 
@@ -65,8 +65,10 @@ INSERT INTO `alumnes` (`DNI`, `Nom`, `Cognoms`, `Edat`, `Foto`, `Mail`, `passwor
 ('A11111111', 'Daniel', 'Garcia', 18, 'img/D11111111.png', 'daniel@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b'),
 ('B11111111', 'Marc', 'Garcia', 21, 'img/D11111111.png', 'marc@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b'),
 ('C11111111', 'Pau', 'Garcia', 25, 'img/D11111111.png', 'pau@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b'),
-('D11111111', 'Vladyslav', 'pasichnyk', 19, 'img/D11111111.png', 'vlad@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b'),
-('X11111111', 'Pep', 'Garcia', 20, 'img/D11111111.png', 'pep@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b');
+('D11111111', 'Vladyslav', 'Pasichnyk', 19, 'img/D11111111.png', 'vlad@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b'),
+('X11111111', 'Pep', 'Garcia', 20, 'img/D11111111.png', 'pep@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b'),
+('Y1234567O', 'Prova', 'Prova', 44, 'img/Y1234567O.png', 'prova@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b'),
+('Y1234567Y', 'Vladyslav', 'Prova', 6, 'img/Y1234567Y.jpg', 'vladprova@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b');
 
 -- --------------------------------------------------------
 
@@ -92,10 +94,11 @@ CREATE TABLE `cursos` (
 
 INSERT INTO `cursos` (`Codi`, `Nom`, `Descripcio`, `Horres_durara`, `Data_inici`, `Data_final`, `DNI_prof`, `Actiu`, `Foto`) VALUES
 (1, 'DAW', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id arcu fringilla, pretium libero ac, fringilla est. Vestibulum ante ipsum primis in faucibus orci luctus.', 1000, '2023-04-13', '2022-09-14', '12345678x', 'si', 'img/1.svg'),
-(2, 'DAW2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id arcu fringilla, pretium libero ac, fringilla est. Vestibulum ante ipsum primis in faucibus orci luctus. ', 2000, '2023-03-03', '2023-01-28', '12345678x', 'si', 'img/2.jpg'),
+(2, 'DAW2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id arcu fringilla, pretium libero ac, fringilla est. Vestibulum ante ipsum primis in faucibus orci luctus. ', 2000, '2023-03-03', '2023-01-28', '12345678x', 'si', 'img/2.svg'),
 (3, 'SMX', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id arcu fringilla, pretium libero ac, fringilla est. Vestibulum ante ipsum primis in faucibus orci luctus.', 2000, '2023-02-24', '2023-12-01', '12345678x', 'si', 'img/3.svg'),
 (4, 'SMX2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id arcu fringilla, pretium libero ac, fringilla est. Vestibulum ante ipsum primis in faucibus orci luctus.', 2000, '2023-03-10', '2024-03-31', '88888888C', 'si', 'img/4.svg'),
-(6, 'Usuarios', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id arcu fringilla, pretium libero ac, fringilla est. Vestibulum ante ipsum primis in faucibus orci luctus.', 200, '2022-11-14', '2023-03-30', '44444444f', 'si', 'img/6.svg');
+(5, 'SO', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id arcu fringilla, pretium libero ac, fringilla est. Vestibulum ante ipsum primis in faucibus orci luctus.', 500, '2023-02-16', '2023-06-22', '12345678x', 'si', 'img/5.png'),
+(6, 'Java', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id arcu fringilla, pretium libero ac, fringilla est. Vestibulum ante ipsum primis in faucibus orci luctus.', 200, '2023-03-07', '2023-03-30', '44444444f', 'si', 'img/6.svg');
 
 -- --------------------------------------------------------
 
@@ -114,16 +117,19 @@ CREATE TABLE `matricula` (
 --
 
 INSERT INTO `matricula` (`DNI_alum`, `Codi_curs`, `nota`) VALUES
-('A11111111', 1, 8),
-('A11111111', 3, 2),
+('A11111111', 1, 9),
+('A11111111', 3, 4),
 ('B11111111', 1, 5),
 ('B11111111', 3, 3),
 ('C11111111', 1, 2),
 ('C11111111', 3, 0),
 ('D11111111', 1, 0),
-('D11111111', 3, 0),
-('X11111111', 1, 0),
-('X11111111', 3, 0);
+('D11111111', 2, 0),
+('D11111111', 6, 0),
+('X11111111', 1, 1),
+('X11111111', 3, 0),
+('Y1234567O', 1, 0),
+('Y1234567O', 3, 0);
 
 -- --------------------------------------------------------
 
@@ -149,9 +155,9 @@ CREATE TABLE `professor` (
 
 INSERT INTO `professor` (`DNI`, `Nom`, `Cognoms`, `Edat`, `Titol_academic`, `Foto`, `Mail`, `Actiu`, `password`) VALUES
 ('12345678x', 'Pep', 'Garcia', 20, 'DAW', 'img/12345678x.jpg', 'pepi@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
-('3212321', '123', '321', 30, '32131', 'img/3212321.png', 'pepe@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
-('44444444f', 'pig', 'pepa', 30, 'TUT', 'img/44444444f.png', 'PIG@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
-('88888888C', 'Koko', 'Kok', 30, 'UNI', 'img/88888888C.png', 'koko@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b');
+('44444444f', 'Marcos', 'Cobos', 25, 'DAW', 'img/44444444f.jpg', 'marcoscobos@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
+('88888888C', 'Noah', 'Carmona', 22, 'DAW', 'img/88888888C.jpeg', 'noahcarmona@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
+('X1234567X', 'Manuel', 'Cordoba', 25, 'DAW', 'img/X1234567X.webp', 'manuelcardoba@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b');
 
 --
 -- Індекси збережених таблиць

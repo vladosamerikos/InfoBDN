@@ -73,7 +73,7 @@
                         <p>Foto<input required type='file' name='foto' id='foto' accept='image/*'></p>
                         <p>Codi<input required type='number' min='0' name='codi' id='codi'></p>
                         <p>Nom<input required type='text' pattern='[A-Za-z0-9]+' name='nom' id='nom'></p>
-                        <p>Descripció<input required type='text' name='descrip' id='descrip' pattern='[A-Za-z0-9]+''></p>
+                        <p>Descripció<input required type='text' name='descrip' id='descrip'></p>
                         <p>Hores que durará<input required type='number' min='0' name='hdurara' id='hdurara'></p>
                         <p>Data d'inici<input required type='date' name='dinici' id='dinici'></p>
                         <p>Data de final<input required type='date' name='dfinal' id='dfinal'></p>
