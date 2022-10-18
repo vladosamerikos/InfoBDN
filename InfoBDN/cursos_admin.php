@@ -36,6 +36,7 @@
                 echo "<table>
                     <tr>
                         <th>Codi</th>
+                        <th>Foto</th>
                         <th>Nom</th>
                         <th>Descripció</th>
                         <th>Hores durara</th>
@@ -46,11 +47,13 @@
                         <th></th>
                         <th></th>
                         <th></th>
+                        <th></th>
                     </tr>";
                 for ($i = 0; $i < $numlines; $i++) {
                     $curs = mysqli_fetch_assoc($consulta);
                     echo "<tr>
                         <td>" . $curs['Codi'] . "</td>
+                        <td><img class='profile_foto' src='" . $curs['Foto'] . "'></td>
                         <td>" . $curs['Nom'] . "</td>
                         <td>" . $curs['Descripcio'] . "</td>
                         <td>" . $curs['Horres_durara'] . "</td>
@@ -65,6 +68,7 @@
                     } else {
                         echo "<td><a href='cursos_status.php?codi=" . $curs['Codi'] . "&opc=desact'><img class='link_img' src='img/desact.svg' alt='desactivar'></a></td>";
                     }
+                    echo "<td><a href='edit_cursfoto.php?codi=" . $curs['Codi'] . "&foto=" . $curs['Foto'] . "'><img class='link_img' src='img/editphoto.svg' alt='editar foto'></a></td>";
                     echo "</tr>";
                 }
                 echo "</table>";

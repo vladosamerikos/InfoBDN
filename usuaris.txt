@@ -1,7 +1,7 @@
 Usuaris
 
 admin - vladadmin@gmail.com  12345
-professor - pepe@gmail.com  12345
+professor - pepi@gmail.com  12345
 alumne - vlad@gmail.com  12345
 
 Contrasenya per tots usuaris existens es 12345
