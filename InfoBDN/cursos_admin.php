@@ -113,7 +113,7 @@
                     <td>" . $curs['DNI_prof'] . "</td>
                     <td>" . $curs['Actiu'] . "</td>
                     <td><a href='edit_curs.php?codi=" . $curs['Codi'] . "'><img class='link_img' src='img/edit.svg' alt='editar'></a></td>
-                    <td><a href='del_curs.php?codi=" . $curs['Codi'] . "'><img class='link_img' src='img/delete.svg' alt='eliminar'></a></td>";
+                    <td><a href='del_curs.php?codi=" . $curs['Codi'] . "&foto=" . $curs['Foto'] . "'><img class='link_img' src='img/delete.svg' alt='eliminar'></a></td>";
                 if ($curs['Actiu'] != "si") {
                     echo "<td><a href='cursos_status.php?codi=" . $curs['Codi'] . "&opc=act'><img class='link_img' src='img/act.svg' alt='activar'></a></td>";
                 } else {

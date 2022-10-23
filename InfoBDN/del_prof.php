@@ -31,6 +31,18 @@
             } else {
                 echo "<p>El usuario no tenia foto</p>";
             }
+            
+            $sql2= "UPDATE cursos SET DNI_prof = '00000000X' WHERE DNI_prof like '$dni' ";
+            // Ejecutamos la sentencia
+            $consulta2 = mysqli_query($bddcon, $sql2);
+            // Controlamos posibles errores
+            if (!$consulta2) {
+                echo mysqli_error($bddcon) . "<br>";
+                echo "Error querry no valida " . $sql2;
+                echo "<META HTTP-EQUIV='REFRESH' CONTENT='3;URL=profs_admin.php'>";
+            } else {
+                echo "Professor temporal canviat exitosament!!!";
+            }
             // Creamos la sentencia sql
             $sql = "DELETE FROM professor WHERE  DNI= '$dni'";
             // Ejecutamos la sentencia
@@ -40,7 +52,7 @@
                 echo mysqli_error($bddcon) . "<br>";
                 echo "Error querry no valida " . $sql;
                 echo "Redirigint..";
-                echo "<META HTTP-EQUIV='REFRESH' CONTENT='3;URL=profs_admin.php'>";
+                echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=profs_admin.php'>";
             } else {
                 echo "Professor eliminat exitosament!";
                 echo "<META HTTP-EQUIV='REFRESH' CONTENT='1.5;URL=profs_admin.php'>";

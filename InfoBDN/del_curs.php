@@ -20,6 +20,17 @@
         if ($_REQUEST['codi']) {
             // Recogemos pos datos enviados des del formulario y los guardamos en variables locales
             $codi = $_REQUEST['codi'];
+            $oldfoto = $_REQUEST['foto'];
+            // Eliminamos el arxivo de la foto aterior
+            if ($oldfoto != '') {
+                if (unlink($oldfoto)) {
+                    echo "<p>Foto anterior eliminada exitosamente</p>";
+                } else {
+                    echo "<p>Error a la hora de eliminar la foto</p>";
+                }
+            } else {
+                echo "<p>El curs no tenia foto</p>";
+            }
             // Creamos la sentencia sql
             $sql = "DELETE FROM cursos WHERE Codi = '$codi'";
             // Ejecutamos la sentencia
