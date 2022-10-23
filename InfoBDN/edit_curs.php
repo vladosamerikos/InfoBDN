@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <script src="script.js"></script>
     <?php
     include "functions.php";
     $bddcon = getBddConn();
@@ -47,7 +48,7 @@
                 $codi = $_REQUEST['codi'];
                 // Creamos la sentencia sql
                 $sql = "SELECT * FROM cursos WHERE Codi = $codi";
-                $sqldni = "SELECT DNI, Nom, Cognoms FROM professor";
+                $sqldni = "SELECT DNI, Nom, Cognoms FROM professor WHERE Actiu like 'si'";
                 // Ejecutamos la sentencia
                 $consulta = mysqli_query($bddcon, $sql);
                 // Controlamos posibles errores
@@ -65,8 +66,8 @@
                         <p>Nom<input type='text' name='nom' id='nom' value='" . $curs['Nom'] . "'></p>
                         <p>Descripció<input type='text' name='descrip' id='descrip' value='" . $curs['Descripcio'] . "'></p>
                         <p>Hores que durará<input type='number' name='hdurara' id='hdurara' value='" . $curs['Horres_durara'] . "'></p>
-                        <p>Data d'inici<input type='date' name='dinici' id='dinici' value='" . $curs['Data_inici'] . "'></p>
-                        <p>Data de final<input type='date' name='dfinal' id='dfinal' value='" . $curs['Data_final'] . "'></p>
+                        <p>Data d'inici<input type='date' name='dinici' onclick='validarFechaIncial()' id='dinici' value='" . $curs['Data_inici'] . "'></p>
+                        <p>Data de final<input type='date' name='dfinal' onclick='validarFechaFinal()' id='dfinal' value='" . $curs['Data_final'] . "'></p>
                         <p>Professor que imparteix<select name='dniprof' id='dniprof'>";
                     $consultadni = mysqli_query($bddcon, $sqldni);
                     $numlines = mysqli_num_rows($consultadni);

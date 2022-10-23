@@ -11,9 +11,11 @@
 </head>
 
 <body>
+    <script src="script.js"></script>
     <?php
     include "functions.php";
     $bddcon = getBddConn();
+    $fechaActual = date('Y-m-d');
     // Comprobamos que hemos iniciado la session
     if (isset($_SESSION["email"]) && $_SESSION["role"] == "admin") {
         if ($_POST) {
@@ -75,8 +77,8 @@
                         <p>Nom<input required type='text' pattern='[A-Za-z0-9]+' name='nom' id='nom'></p>
                         <p>Descripció<input required type='text' name='descrip' id='descrip'></p>
                         <p>Hores que durará<input required type='number' min='0' name='hdurara' id='hdurara'></p>
-                        <p>Data d'inici<input required type='date' name='dinici' id='dinici'></p>
-                        <p>Data de final<input required type='date' name='dfinal' id='dfinal'></p>
+                        <p>Data d'inici<input required type='date' onclick='validarFechaIncial()' min='" . $fechaActual . "' name='dinici' id='dinici'></p>
+                        <p>Data de final<input required type='date' onclick='validarFechaFinal()' name='dfinal' id='dfinal'></p>
                         <p>Professor que imparteix<select required name='dniprof' id='dniprof'>";
                 $numlines = mysqli_num_rows($consulta);
                 for ($i = 0; $i < $numlines; $i++) {
