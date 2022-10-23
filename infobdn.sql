@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Час створення: Жов 18 2022 р., 00:19
--- Версія сервера: 10.4.24-MariaDB
--- Версія PHP: 7.4.28
+-- Время создания: Окт 23 2022 г., 23:03
+-- Версия сервера: 10.4.22-MariaDB
+-- Версия PHP: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База даних: `infobdn`
+-- База данных: `infobdn`
 --
 CREATE DATABASE IF NOT EXISTS `infobdn` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `infobdn`;
@@ -26,7 +26,7 @@ USE `infobdn`;
 -- --------------------------------------------------------
 
 --
--- Структура таблиці `admins`
+-- Структура таблицы `admins`
 --
 
 CREATE TABLE `admins` (
@@ -35,7 +35,7 @@ CREATE TABLE `admins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Дамп даних таблиці `admins`
+-- Дамп данных таблицы `admins`
 --
 
 INSERT INTO `admins` (`Mail`, `Password`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `admins` (`Mail`, `Password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблиці `alumnes`
+-- Структура таблицы `alumnes`
 --
 
 CREATE TABLE `alumnes` (
@@ -58,7 +58,7 @@ CREATE TABLE `alumnes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Дамп даних таблиці `alumnes`
+-- Дамп данных таблицы `alumnes`
 --
 
 INSERT INTO `alumnes` (`DNI`, `Nom`, `Cognoms`, `Edat`, `Foto`, `Mail`, `password`) VALUES
@@ -73,7 +73,7 @@ INSERT INTO `alumnes` (`DNI`, `Nom`, `Cognoms`, `Edat`, `Foto`, `Mail`, `passwor
 -- --------------------------------------------------------
 
 --
--- Структура таблиці `cursos`
+-- Структура таблицы `cursos`
 --
 
 CREATE TABLE `cursos` (
@@ -89,11 +89,11 @@ CREATE TABLE `cursos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Дамп даних таблиці `cursos`
+-- Дамп данных таблицы `cursos`
 --
 
 INSERT INTO `cursos` (`Codi`, `Nom`, `Descripcio`, `Horres_durara`, `Data_inici`, `Data_final`, `DNI_prof`, `Actiu`, `Foto`) VALUES
-(1, 'DAW', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id arcu fringilla, pretium libero ac, fringilla est. Vestibulum ante ipsum primis in faucibus orci luctus.', 1000, '2023-04-13', '2022-09-14', '12345678x', 'si', 'img/1.svg'),
+(1, 'DAW', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id arcu fringilla, pretium libero ac, fringilla est. Vestibulum ante ipsum primis in faucibus orci luctus.', 1000, '2022-10-20', '2022-10-22', '12345678x', 'si', 'img/1.png'),
 (2, 'DAW2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id arcu fringilla, pretium libero ac, fringilla est. Vestibulum ante ipsum primis in faucibus orci luctus. ', 2000, '2023-03-03', '2023-01-28', '12345678x', 'si', 'img/2.svg'),
 (3, 'SMX', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id arcu fringilla, pretium libero ac, fringilla est. Vestibulum ante ipsum primis in faucibus orci luctus.', 2000, '2023-02-24', '2023-12-01', '12345678x', 'si', 'img/3.svg'),
 (4, 'SMX2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id arcu fringilla, pretium libero ac, fringilla est. Vestibulum ante ipsum primis in faucibus orci luctus.', 2000, '2023-03-10', '2024-03-31', '88888888C', 'si', 'img/4.svg'),
@@ -103,7 +103,7 @@ INSERT INTO `cursos` (`Codi`, `Nom`, `Descripcio`, `Horres_durara`, `Data_inici`
 -- --------------------------------------------------------
 
 --
--- Структура таблиці `matricula`
+-- Структура таблицы `matricula`
 --
 
 CREATE TABLE `matricula` (
@@ -113,7 +113,7 @@ CREATE TABLE `matricula` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Дамп даних таблиці `matricula`
+-- Дамп данных таблицы `matricula`
 --
 
 INSERT INTO `matricula` (`DNI_alum`, `Codi_curs`, `nota`) VALUES
@@ -134,7 +134,7 @@ INSERT INTO `matricula` (`DNI_alum`, `Codi_curs`, `nota`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблиці `professor`
+-- Структура таблицы `professor`
 --
 
 CREATE TABLE `professor` (
@@ -150,65 +150,66 @@ CREATE TABLE `professor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Дамп даних таблиці `professor`
+-- Дамп данных таблицы `professor`
 --
 
 INSERT INTO `professor` (`DNI`, `Nom`, `Cognoms`, `Edat`, `Titol_academic`, `Foto`, `Mail`, `Actiu`, `password`) VALUES
-('12345678x', 'Pep', 'Garcia', 20, 'DAW', 'img/12345678x.jpg', 'pepi@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
+('00000000X', 'Temporal', 'Temporal', 30, 'Temporal', 'img/00000000X.png', 'temporal@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
+('12345678x', 'Pep', 'Garcia', 21, 'DAW', 'img/12345678x.jpg', 'pepi@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
 ('44444444f', 'Marcos', 'Cobos', 25, 'DAW', 'img/44444444f.jpg', 'marcoscobos@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
 ('88888888C', 'Noah', 'Carmona', 22, 'DAW', 'img/88888888C.jpeg', 'noahcarmona@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b'),
 ('X1234567X', 'Manuel', 'Cordoba', 25, 'DAW', 'img/X1234567X.webp', 'manuelcardoba@gmail.com', 'si', '827ccb0eea8a706c4c34a16891f84e7b');
 
 --
--- Індекси збережених таблиць
+-- Индексы сохранённых таблиц
 --
 
 --
--- Індекси таблиці `admins`
+-- Индексы таблицы `admins`
 --
 ALTER TABLE `admins`
   ADD UNIQUE KEY `Mail` (`Mail`);
 
 --
--- Індекси таблиці `alumnes`
+-- Индексы таблицы `alumnes`
 --
 ALTER TABLE `alumnes`
   ADD PRIMARY KEY (`DNI`),
   ADD UNIQUE KEY `Mail` (`Mail`);
 
 --
--- Індекси таблиці `cursos`
+-- Индексы таблицы `cursos`
 --
 ALTER TABLE `cursos`
   ADD PRIMARY KEY (`Codi`),
   ADD KEY `DNI_prof` (`DNI_prof`);
 
 --
--- Індекси таблиці `matricula`
+-- Индексы таблицы `matricula`
 --
 ALTER TABLE `matricula`
   ADD PRIMARY KEY (`DNI_alum`,`Codi_curs`),
   ADD KEY `Codi_curs` (`Codi_curs`);
 
 --
--- Індекси таблиці `professor`
+-- Индексы таблицы `professor`
 --
 ALTER TABLE `professor`
   ADD PRIMARY KEY (`DNI`),
   ADD UNIQUE KEY `mail` (`Mail`);
 
 --
--- Обмеження зовнішнього ключа збережених таблиць
+-- Ограничения внешнего ключа сохраненных таблиц
 --
 
 --
--- Обмеження зовнішнього ключа таблиці `cursos`
+-- Ограничения внешнего ключа таблицы `cursos`
 --
 ALTER TABLE `cursos`
   ADD CONSTRAINT `cursos_ibfk_1` FOREIGN KEY (`DNI_prof`) REFERENCES `professor` (`DNI`) ON DELETE CASCADE;
 
 --
--- Обмеження зовнішнього ключа таблиці `matricula`
+-- Ограничения внешнего ключа таблицы `matricula`
 --
 ALTER TABLE `matricula`
   ADD CONSTRAINT `matricula_ibfk_2` FOREIGN KEY (`Codi_curs`) REFERENCES `cursos` (`Codi`) ON DELETE CASCADE,
